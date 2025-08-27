@@ -6,7 +6,7 @@ nav_order: 3
 
 # Model Registry
 
-Central repository to store/version models, promote across stages (staging → production), and support rollbacks.
+A model registry is a specialized repository where trained model artifacts are stored and versioned. It often provides functionalities like promoting models to different stages (e.g., from “staging” to “production”), keeping track of model versions, and storing associated metadata like release notes. Teams use registries to have a single source of truth for which models are available for deployment and to facilitate rollbacks if needed.
 
 ## Attack surfaces
 
