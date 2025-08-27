@@ -1,20 +1,20 @@
 title: Threats Across the AI Lifecycle
 description: Full, detailed content — Intro, Data Engineering, Experiment/Development, Production
-# Use the Just the Docs theme
+
+# Correct base URLs for a project site (icpinto/ai-lifecycle-threats)
+url: https://icpinto.github.io
+baseurl: /ai-lifecycle-threats
+
+# Just the Docs theme
 remote_theme: just-the-docs/just-the-docs
-
-# Optional: logo & color scheme
-color_scheme: dark
-
-# Enable Aux links (optional)
-aux_links:
-  "View on GitHub":
-    - "https://github.com/your-username/your-repo"
-
-# Navigation (nav_order controls sidebar order)
-nav_external_links_new_tab: true
-search_enabled: true
 plugins:
   - jekyll-remote-theme
 
-# Collections not needed for now
+# Theme settings
+color_scheme: dark
+search_enabled: true
+nav_external_links_new_tab: true
+
+aux_links:
+  "View on GitHub":
+    - "https://github.com/icpinto/ai-lifecycle-threats"
