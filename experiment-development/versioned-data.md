@@ -6,19 +6,28 @@ nav_order: 1
 
 # Versioned Data
 
-Version‑control datasets for training and evaluation (e.g., DVC, Delta Lake, data catalogs) to ensure reproducibility and lineage from raw data to training sets.
+It’s a best practice to version‑control the datasets used for training and evaluation. Teams use data versioning systems or model registries (like DVC, Delta Lake, or cloud data catalogs) to keep track of dataset versions, ensure reproducibility, and maintain lineage from raw data through to training sets. This component acts as a bridge between the data engineering phase and model training.
 
-## Attack surfaces
+#### Dataset Poisoning Across Versions
+Adversaries incrementally inject corrupted records across successive versions, making the attack harder to detect.  
+> **Example:** Each dataset release for a content moderation model includes a few mislabeled “toxic” posts as “safe.” Over multiple versions, the model increasingly fails to catch hate speech.
 
-- **Dataset Poisoning Across Versions:** Malicious records added incrementally across releases.  
-  *Example:* A few mislabeled “toxic” posts per release erode moderation.
-- **Registry Compromise:** Datasets overwritten/replaced in object stores/registries.  
-  *Example:* Breached registry swaps in tainted medical training set.
-- **Weak Integrity Checks & Hash Collisions:** Lacking cryptographic signing enables silent tampering.  
-  *Example:* Modified CSV passes weak checksum.
-- **Access Control Gaps:** RBAC/ACL misconfig allows unauthorized read/write.  
-  *Example:* Broad write permissions let contractors upload poisoned data.
-- **Data Lineage Forgery:** Metadata/commit IDs/version tags manipulated.  
-  *Example:* Poisoned data tagged “gold‑standard v3.”
-- **Data Exfiltration & IP Theft:** Insiders/attackers clone proprietary datasets.  
-  *Example:* Competitor exfiltrates speech datasets to train a substitute.
+#### Registry Compromise
+Attackers overwrite or replace datasets in object stores or registries.  
+> **Example:** A cloud dataset registry is breached, and the latest training set for a medical AI is replaced with tainted records that subtly bias diagnoses.
+
+#### Weak Integrity Checks & Hash Collisions
+If dataset snapshots lack cryptographic signing, silent tampering can persist.  
+> **Example:** An attacker modifies a CSV file, recalculates a non‑cryptographic checksum, and the pipeline ingests it as valid.
+
+#### Access Control Gaps
+Improper RBAC/ACL configurations allow unauthorized read/write access.  
+> **Example:** A junior contractor with broad write permissions uploads a dataset variant from their local machine containing poisoned samples.
+
+#### Data Lineage Forgery
+Attackers manipulate dataset metadata (provenance, commit IDs, or version tags) to misrepresent data origins.  
+> **Example:** Poisoned data is tagged as “gold‑standard v3” in the registry, making it indistinguishable from trusted sets.
+
+#### Data Exfiltration & IP Theft
+Insiders or attackers with read access may clone sensitive proprietary datasets.  
+> **Example:** A competitor exfiltrates versioned speech datasets to train a substitute model, bypassing costly data collection.
