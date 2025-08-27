@@ -10,13 +10,17 @@ In this initial phase, organizations gather raw data from various sources. This 
 
 ## Attack surface
 
-- **Data Poisoning at Source:** Attackers inject malicious samples or mislabeled data into the original source (e.g., crowdsourced datasets, open corpora, third‑party contributions).  
-  *Example:* In a spam detection dataset, an adversary contributes mislabeled spam emails as “ham,” causing the model to miss real spam.
-- **Tampering During Ingestion:** Without secure transport and validation, attackers manipulate data flows during ETL/API pulls (MITM, modified files in transit).  
-  *Example:* Intercepted transaction logs via an unsecured API insert backdoors that mislead a fraud model.
-- **Supply‑Chain Dataset Compromise:** Poisoned public datasets or mirrors infiltrate downstream models.  
-  *Example:* A “popular” image set with backdoor stickers causes consistent mislabels.
-- **Tainted Web‑Scraping Streams:** Attackers seed harmful content for scrapers, introducing bias/misinformation/instructions.  
-  *Example:* Misleading medical advice planted on a forum is scraped and later suggested by a healthcare assistant.
-- **Unauthorized Access & Data Exfiltration:** Raw lakes in cloud buckets/shared storage are targets; weak auth/over‑broad permissions lead to theft/tampering.  
-  *Example:* Exposed S3 with facial images is stolen and partially replaced with manipulated ones, raising future membership‑inference/backdoor risks.
+- **Data Poisoning at Source:** Attackers inject malicious samples or mislabeled data into the original source. This is especially dangerous in crowdsourced datasets, open corpora, or third-party contributions. 
+> **Ex:** In a spam detection dataset, an adversary contributes mislabeled spam emails marked as “ham” (non-spam). The resulting model, trained on this corrupted data, fails to detect real spam messages, giving the attacker an advantage.
+
+- **Tampering During Ingestion:** Without secure transport and validation, attackers can manipulate data flows during ETL (Extract, Transform, Load) processes or API pulls. This includes man-in-the-middle (MITM) attacks or modifying files in transit 
+> **Ex:**  A financial institution regularly pulls transaction logs via an unsecured API. An attacker intercepts the feed and alters transaction fields, inserting backdoors that later mislead a fraud detection model.
+
+- **Supply‑Chain Dataset Compromise:** Public datasets or mirrored repositories may be poisoned deliberately as a form of data supply-chain attack. Because many ML teams reuse popular benchmarks, these poisoned datasets can infiltrate many downstream models.
+> **Ex:** A malicious actor uploads a compromised version of a widely used image dataset. The poisoned subset includes backdoor triggers  small stickers on objects  causing image classifiers trained on this data to mislabel those objects consistently.
+
+- **Tainted Web‑Scraping Streams:**  Adversaries can deliberately plant harmful content on web pages or forums, knowing it will be scraped into AI datasets. These “tainted” records can introduce bias, misinformation, or embedded instructions.
+> **Ex:**An attacker publishes misleading medical advice on a high-traffic forum. An AI healthcare assistant trained on scraped data incorporates these poisoned entries, later suggesting harmful treatments to users.
+
+- **Unauthorized Access & Data Exfiltration:**  Raw data lakes, often stored in cloud buckets or shared development storage, are attractive targets. Weak authentication or overly broad permissions can allow unauthorized downloads or manipulations.
+> **Ex:**An exposed S3 bucket holding raw facial images for a biometric model is discovered by attackers. They not only steal sensitive personal data but also replace some images with manipulated ones, increasing the risk of future membership inference and backdoor triggers.
