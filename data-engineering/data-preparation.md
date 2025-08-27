@@ -8,7 +8,7 @@ nav_order: 4
 
 Final packaging of engineered data into training, validation, and test sets; stratified/time-aware splitting to preserve representativeness; this is the last stop before training.
 
-## Attack surface
+## Attack surfaces
 
 - **Validation/Test-Set Poisoning:** Attackers insert crafted examples into evaluation datasets to distort metrics or guide hyperparameter selection.  
 > **Ex:** A malicious sample is inserted into the validation set, making a backdoored model appear more accurate than a clean alternative.
