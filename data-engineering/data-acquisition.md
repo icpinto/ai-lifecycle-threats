@@ -8,7 +8,7 @@ nav_order: 1
 
 In this initial phase, organizations gather raw data from various sources. This may include first‑party data (from internal systems or users of your product), third‑party data feeds or partnerships, public datasets, web‑scraped content, and user‑generated telemetry. The choices made here determine the foundation of the AI model. It’s important to note that just because data is publicly accessible does not mean it is safe or free to use without scrutiny.
 
-## Attack surface
+## Attack surfaces
 
 - **Data Poisoning at Source:** Attackers inject malicious samples or mislabeled data into the original source. This is especially dangerous in crowdsourced datasets, open corpora, or third-party contributions. 
 > **Ex:** In a spam detection dataset, an adversary contributes mislabeled spam emails marked as “ham” (non-spam). The resulting model, trained on this corrupted data, fails to detect real spam messages, giving the attacker an advantage.
