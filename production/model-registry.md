@@ -10,7 +10,14 @@ A model registry is a specialized repository where trained model artifacts are s
 
 ## Attack surfaces
 
-- Registry poisoning (replace/retag so “Production” points to a backdoored model).
-- Improper access control (over‑permissive push/promote/delete).
-- Legacy artifacts not retired (shadow models resurrected via rollback).
-- Unsigned downloads (MITM or mirror swap).
+- **Registry poisoning:** An attacker replaces or retags a malicious model as the “production” version.  
+> **Ex:** An insider retags a backdoored model as the latest “production-ready” version, leading to a trojaned model being served to customers.
+
+- **Improper access control:** Weak permissions allow unauthorized pushes, promotions, or deletions.  
+> **Ex:** A low-privilege developer account is compromised and uploads an unreviewed model directly to production.
+
+- **Legacy artifacts not retired:** Old models remain in the registry and can be rolled back to.  
+> **Ex:** An outdated fraud-detection model is rolled back automatically after a crash, but attackers already know how to bypass it, enabling fraud at scale.
+
+- **Unsigned or unverifiable downloads:** Models pulled from the registry are not cryptographically verified.  
+> **Ex:** A MITM attacker intercepts traffic and swaps the model file with a trojaned version during deployment.
