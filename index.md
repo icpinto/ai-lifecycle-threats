@@ -14,10 +14,9 @@ For example, consider the **Data Engineering** stage: in an MLOps pipeline, the 
 
 ---
 
-## The Three Major Sections
+## The Three Major Stages in AI Lifecycle
 
-- **Data Engineering** — Data Acquisition; Data Pre‑processing; Data Analysis; Data Preparation  
-- **Experiment / Development Stage** — Versioned Data; Model Training; Model Validation; MLOps Pipeline; Code Repository  
-- **Production (Serving & Operations)** — ML Metadata Store; Model Export; Model Registry; AI System (Serving/Inference); Monitoring (Telemetry & Audit); Input Data; Output Data
+- **Data Engineering** — Builds trustworthy datasets including acquiring, cleaning, labeling, and packaging data for training.  
+- **Experiment / Development Stage** — Turns data into models, versioning datasets, training, validating for robustness and fairness, and automating workflows with MLOps pipelines and repos.  
+- **Production (Serving & Operations)** — Ships and runs models, exporting & registering artifacts, serving predictions, and continuously monitoring telemetry and drift.
 
-Use the sidebar to navigate.
