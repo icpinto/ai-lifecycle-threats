@@ -8,7 +8,7 @@ nav_order: 2
 
 Cleaning/normalization, deduplication, imputation, encoding, and data sanitisation of personal data (generalization, suppression, perturbation of identifiers/quasi‑identifiers) to reduce re‑identification risk before downstream use.
 
-## Attack surface
+## Attack surfaces
 
 - **Label‑Flipping Attacks:**  Adversaries hide targeted re-labeling within cleaning scripts or pull requests, altering the meaning of training examples. 
  > *Ex:* In a medical dataset, attackers flip “benign tumor” labels to “malignant.” A cancer-detection model trained on this poisoned dataset produces dangerously skewed diagnoses.
