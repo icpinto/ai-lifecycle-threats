@@ -8,7 +8,7 @@ nav_order: 3
 
 EDA, feature extraction, transformation (e.g., scaling, frequency domain, transcription), labeling (manual/semi-auto/model-assisted), augmentation, and synthesis (statistical or generative) to expand usable signal. EDPB warns that new combinations/features can re-expose privacy risks even after sanitisation; privacy audits should be repeated on derived features.
 
-## Attack surface
+## Attack surfaces
 
 - **Backdoor Triggers in Features:** Attackers embed rare feature patterns or watermark-like signals during augmentation that later act as triggers.  
 > **Ex:** Adversaries insert a specific pixel pattern in training images. The model behaves normally on clean data but always misclassifies images containing the pattern — a classic backdoor attack.
