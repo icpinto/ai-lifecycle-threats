@@ -6,7 +6,7 @@ nav_order: 1
 
 # ML Metadata Store
 
-Tracks lineage and provenance of models/data in production (dataset versions, code commits, hyperparameters, metrics, environment). Crucial for compliance, governance, and debugging.
+The metadata store is a system that tracks the lineage and provenance of models and data in production. It typically logs details like which dataset version and training code commit produced a given model, what hyperparameters were used, evaluation metrics, and environment details. Essentially, it’s an audit trail and catalog for models and experiments, crucial for compliance, governance, and debugging.
 
 ## Attack surfaces
 
