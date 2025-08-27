@@ -1,0 +1,20 @@
+title: Threats Across the AI Lifecycle
+description: Full, detailed content — Intro, Data Engineering, Experiment/Development, Production
+# Use the Just the Docs theme
+remote_theme: just-the-docs/just-the-docs
+
+# Optional: logo & color scheme
+color_scheme: dark
+
+# Enable Aux links (optional)
+aux_links:
+  "View on GitHub":
+    - "https://github.com/your-username/your-repo"
+
+# Navigation (nav_order controls sidebar order)
+nav_external_links_new_tab: true
+search_enabled: true
+plugins:
+  - jekyll-remote-theme
+
+# Collections not needed for now
