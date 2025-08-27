@@ -22,7 +22,7 @@ Monitoring is the practice of collecting telemetry from the AI system and its su
 > **Ex:** Attackers spam malformed inputs to trigger low-severity drift alerts, overwhelming operators so that a real poisoning campaign goes unnoticed.
 
 - **Log Injection Attacks:** Malicious payloads are inserted into log messages to exploit downstream log viewers or SIEM systems.  
-> **Ex:** A model response containing "<script>alert('XSS')</script>" is stored in monitoring logs and later executed in a web-based log dashboard.
+> **Ex:** A model response containing ""<script>alert('XSS')</script>"" is stored in monitoring logs and later executed in a web-based log dashboard.
 
 - **Telemetry Poisoning:** Attackers tamper with monitoring data to skew retraining or automated scaling.  
 > **Ex:** Manipulated performance logs suggest that the current model is underperforming, triggering an automatic rollback to an older exploitable model.
